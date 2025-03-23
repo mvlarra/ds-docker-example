@@ -1,4 +1,7 @@
-
+# ‼️Como aprovechar este template:
+1. Descargar archivos de este repo, y subirlos al repo de mi nuevo proyecto.
+2. Luego precionar F1 → Dev Containers: Rebuild Container
+3. Abre un notebook y En el selector de kernel deberías ver: Python 3 (devcontainer)  
 
 # 🐳 Mini Proyecto de Data Science con Docker + Jupyter + DevContainer
 
