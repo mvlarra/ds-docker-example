@@ -1,14 +1,30 @@
 {
+    // Nombre del contenedor que aparecerá en VS Code
     "name": "Python 3 - Data Science",
+  
+    // Imagen base oficial de Microsoft con Python 3.11
     "image": "mcr.microsoft.com/devcontainers/python:0-3.11",
-    "onCreateCommand": "pip3 install --user -r requirements.txt",
-    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y tree",
+  
+    // Comando que se ejecuta al crear el contenedor.
+    // Instala los paquetes listados en requirements.txt
+    "onCreateCommand": "pip3 install -r requirements.txt",
+  
+    // Comando que se ejecuta después de que el contenedor está listo:
+    // - Actualiza el sistema
+    // - Instala el comando `tree` para ver estructuras de carpetas
+    // - Instala `ipykernel` para poder registrar kernels personalizados
+    // - Registra el kernel con el nombre visible 'Python 3 (devcontainer)'
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y tree && python3 -m pip install ipykernel && python3 -m ipykernel install --user --name devcontainer --display-name 'Python 3 (devcontainer)'",
+  
+    // Personalizaciones para el entorno de Visual Studio Code
     "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-toolsai.jupyter",
-                "ms-python.python"
-            ]
-        }
+      "vscode": {
+        // Extensiones que se instalarán automáticamente
+        "extensions": [
+          "ms-toolsai.jupyter",     // Soporte para Jupyter Notebooks
+          "ms-python.python"        // Soporte para desarrollo en Python
+        ]
+      }
     }
-}
+  }
+  
