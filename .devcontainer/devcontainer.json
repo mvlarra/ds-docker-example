@@ -2,6 +2,7 @@
     "name": "Python 3 - Data Science",
     "image": "mcr.microsoft.com/devcontainers/python:0-3.11",
     "onCreateCommand": "pip3 install --user -r requirements.txt",
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y tree",
     "customizations": {
         "vscode": {
             "extensions": [
