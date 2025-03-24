@@ -10,11 +10,14 @@
     "onCreateCommand": "pip3 install -r requirements.txt",
   
     // Comando que se ejecuta después de que el contenedor está listo:
-    // - Actualiza el sistema
-    // - Instala el comando `tree` para ver estructuras de carpetas
-    // - Instala `ipykernel` para poder registrar kernels personalizados
-    // - Registra el kernel con el nombre visible 'Python 3 (devcontainer)'
-    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y tree && python3 -m pip install ipykernel && python3 -m ipykernel install --user --name devcontainer --display-name 'Python 3 (devcontainer)'",
+    // - sudo apt-get update                  | Actualiza paquetes del sistema
+    // - sudo apt-get install -y tree         | Instala el comando `tree` para ver estructuras de carpetas
+    // - python3 -m pip install ipykernel     | Instala `ipykernel` para poder registrar kernels personalizados
+    // - python3 -m ipykernel install --user --name devcontainer --display-name "Python 3 (devcontainer)"  | "Registra el kernel con el nombre visible 'Python 3 (devcontainer)'.
+    // - echo 'export PS1="(devcontainer) $PS1"' >> ~/.bashrc |  Personaliza el prompt del terminal
+
+    // JSON y no soporta varias líneas de codigo en una misma instruccion
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y tree && python3 -m pip install ipykernel && python3 -m ipykernel install --user --name devcontainer --display-name 'Python 3 (devcontainer)' && echo 'export PS1=\"(devcontainer) $PS1\"' >> ~/.bashrc", 
   
     // Personalizaciones para el entorno de Visual Studio Code
     "customizations": {
